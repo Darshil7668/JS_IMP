@@ -1,0 +1,49 @@
+In React, you can pass data between sibling components using a common parent component or using a state management library such as Redux or MobX.
+
+Here's an example using a common parent component:
+
+javascript
+Copy code
+import React, { useState } from "react";
+
+const ParentComponent = () => {
+  const [data, setData] = useState("Initial Data");
+
+  const handleDataChange = newData => {
+    setData(newData);
+  };
+
+  return (
+    <div>
+      <SiblingComponent1 data={data} onDataChange={handleDataChange} />
+      <SiblingComponent2 data={data} onDataChange={handleDataChange} />
+    </div>
+  );
+};
+
+const SiblingComponent1 = ({ data, onDataChange }) => {
+  const handleClick = () => {
+    onDataChange("New Data from Sibling 1");
+  };
+
+  return (
+    <div>
+      <button onClick={handleClick}>Change Data</button>
+    </div>
+  );
+};
+
+const SiblingComponent2 = ({ data }) => {
+  return (
+    <div>
+      <p>{data}</p>
+    </div>
+  );
+};
+
+In this example, the parent component ParentComponent uses the useState hook to set the initial value of data and the function handleDataChange to update the value of data. The ParentComponent then passes both data and handleDataChange as props to the sibling components SiblingComponent1 and SiblingComponent2.
+
+When the button in SiblingComponent1 is clicked, it calls the onDataChange function, which updates the data value in the ParentComponent and triggers a re-render of both SiblingComponent1 and SiblingComponent2. The updated data value is displayed in SiblingComponent2.
+
+
+

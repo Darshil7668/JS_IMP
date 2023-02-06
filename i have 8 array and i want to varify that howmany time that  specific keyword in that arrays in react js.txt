@@ -1,0 +1,33 @@
+Here is an example of how you could count the number of times a specific keyword appears in an array of arrays in React JS:
+
+scss
+Copy code
+const arrays = [  ['apple', 'banana', 'cherry'],
+  ['pear', 'apple', 'banana'],
+  ['grapes', 'apple', 'banana'],
+  ['kiwi', 'apple', 'banana'],
+  ['peach', 'apple', 'banana'],
+  ['mango', 'apple', 'banana'],
+  ['strawberry', 'apple', 'banana'],
+  ['raspberry', 'apple', 'banana']
+];
+
+const keyword = 'apple';
+
+const countKeyword = () => {
+  let count = 0;
+  arrays.forEach(array => {
+    array.forEach(word => {
+      if (word === keyword) {
+        count++;
+      }
+    });
+  });
+  return count;
+};
+
+console.log(countKeyword());
+This will return 8, as the keyword "apple" appears 8 times in the arrays.
+
+
+
