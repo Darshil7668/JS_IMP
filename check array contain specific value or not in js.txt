@@ -9,3 +9,5 @@ const result = fruits.includes(targetValue);
 
 console.log(result); // true
 In this example, the Array.includes() method returns true if the fruits array contains the targetValue, which is "Apple". If the fruits array does not contain the targetValue, Array.includes() returns false.
+
+thank you
